@@ -70,7 +70,7 @@ public class Sample01 {
 
         // 비어있는 스트림
         // Stream.empty()
-        
+
     }
 
 }
