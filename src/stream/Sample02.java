@@ -13,7 +13,7 @@ public class Sample02 {
             new Student("박자바", 2, 150),
             new Student("소자바", 1, 200),
             new Student("나자바", 3, 290),
-            new Student("감자바", 3, 180)
+            new Student("감자바", 3, 295)
         );
 
         studentStream.sorted(Comparator.comparing(Student::getBan) // 반별 정렬
@@ -57,6 +57,9 @@ class Student implements Comparable<Student> {
 
     // 총점 내림차순을 기본 정렬로 한다.
     public int compareTo(Student s) {
+        System.out.println(s.totalScore - this.totalScore);
+        System.out.println("s : " + s);
+        System.out.println("this : " +this);
         return s.totalScore - this.totalScore;
     }
 }
