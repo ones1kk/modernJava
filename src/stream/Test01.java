@@ -4,6 +4,7 @@ import static java.util.stream.Collectors.groupingBy;
 import static java.util.stream.Collectors.toMap;
 
 import java.lang.reflect.Array;
+import java.nio.file.attribute.GroupPrincipal;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -110,19 +111,29 @@ class Person {
 public class Test01 {
 
     public static void main(String[] args) {
-        Integer [] intArr = {1,2,3,4,5};
+        Integer[] intArr = {1, 2, 3, 4, 5};
 
         Stream<Integer> intStream = Stream.of(intArr);
-        int [] intAa = {1,2,3,4,5};
+        int[] intAa = {1, 2, 3, 4, 5};
         IntStream ss = Arrays.stream(intAa);
 
-        String[] strArr = {"a","b","c"};
+        String[] strArr = {"a", "b", "c"};
 
         Stream<String> strStream = Stream.of(strArr);
 
         Stream<String> strStream2 = Arrays.stream(strArr);
 
+        List<Person> testList = new ArrayList<>();
+        testList.add(new Person("짱구", Sex.남자, 23, "010-1234-1234"));
+        testList.add(new Person("유리", Sex.여자, 24, "010-2341-2341"));
+        testList.add(new Person("철수", Sex.남자, 29, "010-3412-3412"));
+        testList.add(new Person("맹구", Sex.남자, 25, null));
 
+        /*
+        // TODO: 2021/12/02  : .stream()과 Stream.of() Check
+         */
+       Map<String,Integer> sss = testList.stream().filter((person) -> person.getAge() >= 23).collect(Collectors.toMap(Person::getName, Person::getAge));
+       sss.forEach((k,v)-> System.out.println(k + "     :     "+v));
 //
 //        List<Integer> intList = Arrays.asList(1,2,3,4,5);
 //        Stream<Integer> integerStream1 = Stream.of(intArr);
@@ -132,7 +143,6 @@ public class Test01 {
 //
 //        Stream<Integer> integerStream2 = intList.stream().filter((s) -> s>3);
 //        integerStream2.forEach(System.out::println);
-
 
         List<Person> personList = new ArrayList<>();
         personList.add(new Person("짱구", Sex.남자, 23, "010-1234-1234"));
@@ -149,7 +159,6 @@ public class Test01 {
             .filter(person -> person.getAge() > 24) // 25살 이상만 골라낸다.
             .collect(Collectors.toMap(Person::getName, Function.identity()));
 
-
         personMap.forEach((k, v) -> System.out.println(k + "  " + v));
 
         Person[] array = {
@@ -162,8 +171,8 @@ public class Test01 {
         Map<Sex, List<Person>> perBySex = Stream.of(array)
             .collect(groupingBy(Person::getSex));
 
-        for(List<Person> per : perBySex.values()) {
-            for(Person s : per) {
+        for (List<Person> per : perBySex.values()) {
+            for (Person s : per) {
                 System.out.println(s);
             }
         }
