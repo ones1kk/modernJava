@@ -111,14 +111,27 @@ public class Test01 {
 
     public static void main(String[] args) {
         Integer [] intArr = {1,2,3,4,5};
-        List<Integer> intList = Arrays.asList(1,2,3,4,5);
-        Stream<Integer> integerStream1 = Stream.of(intArr);
-        integerStream1.forEach(System.out::println);
 
-        System.out.println();
+        Stream<Integer> intStream = Stream.of(intArr);
+        int [] intAa = {1,2,3,4,5};
+        IntStream ss = Arrays.stream(intAa);
 
-        Stream<Integer> integerStream2 = intList.stream().filter((s) -> s>3);
-        integerStream2.forEach(System.out::println);
+        String[] strArr = {"a","b","c"};
+
+        Stream<String> strStream = Stream.of(strArr);
+
+        Stream<String> strStream2 = Arrays.stream(strArr);
+
+
+//
+//        List<Integer> intList = Arrays.asList(1,2,3,4,5);
+//        Stream<Integer> integerStream1 = Stream.of(intArr);
+//        integerStream1.forEach(System.out::println);
+//
+//        System.out.println();
+//
+//        Stream<Integer> integerStream2 = intList.stream().filter((s) -> s>3);
+//        integerStream2.forEach(System.out::println);
 
 
         List<Person> personList = new ArrayList<>();
