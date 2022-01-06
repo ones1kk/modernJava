@@ -2,7 +2,7 @@ package thread;
 
 public class Sample01 {
 
-	public static void main(String args[]) {
+	public static void main(String[] args) {
 		Thread1 t1 = new Thread1();
 
 		Runnable r = new Thread2();
