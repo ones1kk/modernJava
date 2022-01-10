@@ -22,6 +22,8 @@ public class Sample08 {
                 System.out.println(i--);
                 for (long x = 0; x < 2500000000L; x++) ; // 시간 지연
             }
+            System.out.println("interrupted(): " + interrupted()); // true
+            System.out.println("interrupted(): " + interrupted()); // false 1번 사용 후 false로 초기화
             System.out.println("카운트가 종료되었습니다.");
         }
     }
