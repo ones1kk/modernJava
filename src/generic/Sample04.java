@@ -3,25 +3,23 @@ package generic;
 public class Sample04 {
 
     public static void main(String[] args) {
-        Calculator<Integer> calculator = new Calculator<>();
-        calculator.setData(545);
-        Integer data = calculator.getData();
-        System.out.println("data = " + data);
         WorkBook workBook = new WorkBook();
-        Factory.create(workBook, Calculator.class);
+        Factory.create(workBook, Calculator.class).write();
 
     }
 
-    static class Calculator<T> {
+    static class Calculator {
 
-        private T data;
+        private String add;
 
-        public void setData(T data) {
-            this.data = data;
+        private String minus;
+
+        public String getAdd() {
+            return add;
         }
 
-        public T getData() {
-            return data;
+        public void setAdd(String add) {
+            this.add = add;
         }
     }
 
@@ -36,7 +34,7 @@ public class Sample04 {
 
         // model
         public static <W extends WorkBook, T> ModelWriter<W, T> create(W workbook, Class<T> model) {
-            return new ModelWriter<W, T>(workbook, (T) model);
+            return new ModelWriter<>(workbook, model);
         }
 
         public static <W extends WorkBook, T> void create(W workbook) {
@@ -44,61 +42,74 @@ public class Sample04 {
         }
     }
 
-    static abstract class Writer<T> {
+    static interface InterfaceWriter<W extends WorkBook, T> {
+
+        public  InterfaceWriter write();
+
+        public InterfaceWriter write(String str);
+
+        public InterfaceWriter write(Integer num);
+
+        public <W extends WorkBook, T> InterfaceWriter<W , T> write(Integer num, Class<T> model);
+
+        public <W extends WorkBook, T>InterfaceWriter<W, T> write(WorkBook workBook, Class model);
+    }
+
+    static abstract class Writer<T> implements  InterfaceWriter{
 
         protected final WorkBook workBook;
 
-        protected final T model;
+        protected String name;
 
-        protected Writer(WorkBook workBook, T model) {
+
+        protected Writer(WorkBook workBook) {
             this.workBook = workBook;
-            this.model = model;
         }
 
-        public void write() {
-            System.out.println("Writer.write");
+        @Override
+        public InterfaceWriter write() {
+            return null;
         }
 
+        @Override
+        public InterfaceWriter write(String str) {
+            return null;
+        }
+
+        @Override
+        public InterfaceWriter write(Integer num) {
+            return null;
+        }
     }
 
     static class ModelWriter<W extends WorkBook, T> extends Writer<T> {
 
-        public ModelWriter(WorkBook workBook, T model) {
-            super(workBook, model);
+        private final Class<T> model;
 
+        public ModelWriter(WorkBook workBook, Class<T> model) {
+            super(workBook);
+            this.model = model;
+            System.out.println("ModelWriter.ModelWriter");
         }
 
         @Override
-        public void write() {
-            System.out.println("ModelWriter.write");
-        }
-    }
-
-    static class ListWriter extends Writer {
-
-        ListWriter() {
-            super(workBook, model);
+        public InterfaceWriter write() {
+            System.out.println("model = " + model);
+            System.out.println("workBook = " + workBook);
+            return null;
         }
 
         @Override
-        public void write() {
-            System.out.println("ListWriter.write");
+        public InterfaceWriter write(Integer num, Class model) {
+            return null;
         }
-    }
-
-    static interface Parent {
-
-        String data = "this is parent";
-
-        public void print();
-
-    }
-
-    static class Child implements Parent {
 
         @Override
-        public void print() {
-            System.out.println("Child.print");
+        public InterfaceWriter<W, T> write(WorkBook workBook, Class model) {
+            System.out.println("model : " + model);
+            return null;
         }
+
     }
+
 }
