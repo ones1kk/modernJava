@@ -6,6 +6,7 @@ public class Sample04 {
         WorkBook workBook = new WorkBook();
         Factory.create(workBook, Calculator.class).write();
 
+
     }
 
     static class Calculator {
@@ -46,13 +47,6 @@ public class Sample04 {
 
         public  InterfaceWriter write();
 
-        public InterfaceWriter write(String str);
-
-        public InterfaceWriter write(Integer num);
-
-        public <W extends WorkBook, T> InterfaceWriter<W , T> write(Integer num, Class<T> model);
-
-        public <W extends WorkBook, T>InterfaceWriter<W, T> write(WorkBook workBook, Class model);
     }
 
     static abstract class Writer<T> implements  InterfaceWriter{
@@ -71,15 +65,6 @@ public class Sample04 {
             return null;
         }
 
-        @Override
-        public InterfaceWriter write(String str) {
-            return null;
-        }
-
-        @Override
-        public InterfaceWriter write(Integer num) {
-            return null;
-        }
     }
 
     static class ModelWriter<W extends WorkBook, T> extends Writer<T> {
@@ -96,17 +81,6 @@ public class Sample04 {
         public InterfaceWriter write() {
             System.out.println("model = " + model);
             System.out.println("workBook = " + workBook);
-            return null;
-        }
-
-        @Override
-        public InterfaceWriter write(Integer num, Class model) {
-            return null;
-        }
-
-        @Override
-        public InterfaceWriter<W, T> write(WorkBook workBook, Class model) {
-            System.out.println("model : " + model);
             return null;
         }
 
