@@ -3,9 +3,17 @@ package generic;
 import java.util.ArrayList;
 import java.util.List;
 
-class Product{}
-class Tv extends Product{}
-class Audio extends Product{}
+class Product {
+
+}
+
+class Tv extends Product {
+
+}
+
+class Audio extends Product {
+
+}
 
 public class Sample01 {
 
@@ -38,7 +46,7 @@ public class Sample01 {
 
 //        tvList.add(new Audio()); // error
 
-        for (Product p : prdList){
+        for (Product p : prdList) {
             System.out.println(p);
         }
 

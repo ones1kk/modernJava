@@ -1,10 +1,7 @@
 package stream;
 
 import static java.util.stream.Collectors.groupingBy;
-import static java.util.stream.Collectors.toMap;
 
-import java.lang.reflect.Array;
-import java.nio.file.attribute.GroupPrincipal;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -132,8 +129,9 @@ public class Test01 {
         /*
         // TODO: 2021/12/02  : .stream()과 Stream.of() Check
          */
-       Map<String,Integer> sss = testList.stream().filter((person) -> person.getAge() >= 23).collect(Collectors.toMap(Person::getName, Person::getAge));
-       sss.forEach((k,v)-> System.out.println(k + "     :     "+v));
+        Map<String, Integer> sss = testList.stream().filter((person) -> person.getAge() >= 23)
+            .collect(Collectors.toMap(Person::getName, Person::getAge));
+        sss.forEach((k, v) -> System.out.println(k + "     :     " + v));
 //
 //        List<Integer> intList = Arrays.asList(1,2,3,4,5);
 //        Stream<Integer> integerStream1 = Stream.of(intArr);

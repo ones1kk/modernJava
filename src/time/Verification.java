@@ -18,14 +18,43 @@ public class Verification {
     }
 
     public Verification(String code, Duration duration) {
-        if(code.length() > 6) throw new RuntimeException();
-
-        if(duration.getSeconds() > 180) throw new RuntimeException();
-
-        if(code.isBlank() || code.isEmpty()) throw new RuntimeException();
+        if (code.length() > 6) {
+            throw new RuntimeException();
+        }
+        if (duration.getSeconds() > 180) {
+            throw new RuntimeException();
+        }
+        if (code.isBlank() || code.isEmpty()) {
+            throw new RuntimeException();
+        }
 
         this.code = code;
         this.duration = duration;
+    }
+
+    public static void main(String[] args) throws InterruptedException {
+        String code = "123456";
+
+        Verification verification = new Verification(code, Duration.ofMillis(1000L));
+        System.out.println(verification.verify("123456"));
+
+        Thread.sleep(2000L);
+        System.out.println(verification.verify("123123"));
+
+//        Verification exception = new Verification("", Duration.ofMillis(100));
+
+        /********************************V2********************************/
+        System.out.println();
+        String code1 = "aaaaaa";
+        Verification verification1 = new Verification(code1);
+
+        System.out.println(verification1.verify("123456"));
+        System.out.println(verification1.verify("aaaaaa"));
+
+        Thread.sleep(3000L);
+        System.out.println(verification1.verify("aaaaaa"));
+
+
     }
 
     public boolean verify(String code) {
@@ -51,31 +80,5 @@ public class Verification {
 
     public LocalDateTime getCreatedDateTime() {
         return createdDateTime;
-    }
-
-    public static void main(String[] args) throws InterruptedException {
-        String code = "123456";
-
-        Verification verification = new Verification(code, Duration.ofMillis(1000L));
-        System.out.println(verification.verify("123456"));
-
-        Thread.sleep(2000L);
-        System.out.println(verification.verify("123123"));
-
-
-//        Verification exception = new Verification("", Duration.ofMillis(100));
-
-        /********************************V2********************************/
-        System.out.println();
-        String code1 = "aaaaaa";
-        Verification verification1 = new Verification(code1);
-
-        System.out.println(verification1.verify("123456"));
-        System.out.println(verification1.verify("aaaaaa"));
-
-        Thread.sleep(3000L);
-        System.out.println(verification1.verify("aaaaaa"));
-
-
     }
 }

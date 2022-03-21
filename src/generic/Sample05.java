@@ -8,6 +8,11 @@ public class Sample05 {
         Tank.boom(book).move();
     }
 
+    static interface InterfaceBox {
+
+        InterfaceBox move();
+    }
+
     static class Tank {
 
         private Tank() {
@@ -17,12 +22,13 @@ public class Sample05 {
             return new BallBox<>(book, target);
         }
 
-        public static <B extends Book, T> HomeBox<B , T> boom(B book) {
+        public static <B extends Book, T> HomeBox<B, T> boom(B book) {
             return new HomeBox<>(book);
         }
     }
 
     static class Model {
+
         private String aa;
 
         private String bb;
@@ -46,11 +52,6 @@ public class Sample05 {
 
     static class Book {
 
-    }
-
-    static interface InterfaceBox {
-
-        InterfaceBox move();
     }
 
     static abstract class AbstractBox<B extends Book, T> implements InterfaceBox {
