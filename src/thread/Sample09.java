@@ -22,7 +22,8 @@ public class Sample09 {
             th2.stop();
             Thread.sleep(2000);
             th3.stop();
-        } catch (InterruptedException e) {}
+        } catch (InterruptedException e) {
+        }
     } // main
 
     static class RunImpl implements Runnable {
@@ -59,7 +60,8 @@ public class Sample09 {
                     System.out.println(Thread.currentThread().getName());
                     try {
                         Thread.sleep(1000);
-                    } catch (InterruptedException ignored) {}
+                    } catch (InterruptedException ignored) {
+                    }
                 }
 
             }

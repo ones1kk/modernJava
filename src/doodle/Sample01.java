@@ -10,7 +10,8 @@ import java.util.stream.Stream;
 public class Sample01 {
 
     public static void main(String[] args) {
-        Set<String> set = Stream.of("test1", "test2", "test3", "test4", "test5", "test6", "test7", "test8")
+        Set<String> set = Stream.of("test1", "test2", "test3", "test4", "test5", "test6", "test7",
+                "test8")
             .collect(Collectors.toSet());
 
         Generator.builder("aaa", set).build();

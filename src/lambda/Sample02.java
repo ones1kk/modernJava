@@ -1,5 +1,20 @@
 package lambda;
 
+@FunctionalInterface // 함수형 인터페이스는 단 하나의 추상 메서드만 가져야 함.
+interface MyFunction {
+
+    // 인터페이스의 모든 메소드들은 public & abstract
+    int max(int a, int b);
+
+}
+
+
+@FunctionalInterface
+interface MyFunction1 {
+
+    void run();
+}
+
 public class Sample02 {
 
     // 함수형 인터페이스
@@ -44,19 +59,4 @@ public class Sample02 {
     }
 
 
-}
-
-
-@FunctionalInterface // 함수형 인터페이스는 단 하나의 추상 메서드만 가져야 함.
-interface MyFunction {
-
-    // 인터페이스의 모든 메소드들은 public & abstract
-    int max(int a, int b);
-
-}
-
-@FunctionalInterface
-interface MyFunction1 {
-
-    void run();
 }

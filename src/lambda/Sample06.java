@@ -22,7 +22,7 @@ public class Sample06 {
         System.out.println(f1.apply("kim").getLastName());
 
         Function<Integer, int[]> f3 = int[]::new;
-        int [] arr = f3.apply(6);
+        int[] arr = f3.apply(6);
 
         System.out.println(arr.length);
 

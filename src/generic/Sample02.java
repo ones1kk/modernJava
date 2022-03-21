@@ -2,6 +2,10 @@ package generic;
 
 import java.util.ArrayList;
 
+interface Eatable {
+
+}
+
 class Fruit implements Eatable {
 
     public String toString() {
@@ -28,10 +32,6 @@ class Toy {
     public String toString() {
         return "Toy";
     }
-}
-
-interface Eatable {
-
 }
 
 public class Sample02 {

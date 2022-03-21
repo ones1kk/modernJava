@@ -36,37 +36,36 @@ public class Sample05 {
         // 성능적인 문제로 기본형 값을 감싸는 래퍼 클래스 : OptionalInt , OptionalLong, OptionalDouble
         // 값이 있는지 없는지 확인하기 위한 isPresent 메소드가 있다.
 
-
-        Optional<String>  optStr = Optional.of("abcde");
+        Optional<String> optStr = Optional.of("abcde");
         Optional<Integer> optInt = optStr.map(String::length);
-        System.out.println("optStr="+optStr.get());
-        System.out.println("optInt="+optInt.get());
+        System.out.println("optStr=" + optStr.get());
+        System.out.println("optInt=" + optInt.get());
 
         int result1 = Optional.of("123")
-            .filter(x->x.length() >0)
+            .filter(x -> x.length() > 0)
             .map(Integer::parseInt).get();
 
         int result2 = Optional.of("")
-            .filter(x->x.length() >0)
+            .filter(x -> x.length() > 0)
             .map(Integer::parseInt).orElse(-1);
 
-        System.out.println("result1="+result1);
-        System.out.println("result2="+result2);
+        System.out.println("result1=" + result1);
+        System.out.println("result2=" + result2);
 
         Optional.of("456").map(Integer::parseInt)
-            .ifPresent(x->System.out.printf("result3=%d%n",x));
+            .ifPresent(x -> System.out.printf("result3=%d%n", x));
 
-        OptionalInt optInt1  = OptionalInt.of(0);   // 0À» ÀúÀå
-        OptionalInt optInt2  = OptionalInt.empty(); // ºó °´Ã¼¸¦ »ý¼º
+        OptionalInt optInt1 = OptionalInt.of(0);   // 0À» ÀúÀå
+        OptionalInt optInt2 = OptionalInt.empty(); // ºó °´Ã¼¸¦ »ý¼º
 
         System.out.println(optInt1.isPresent());   // true
         System.out.println(optInt2.isPresent());   // false
 
         System.out.println(optInt1.getAsInt());  // 0
 //		System.out.println(optInt2.getAsInt());  // NoSuchElementException
-        System.out.println("optInt1="+optInt1);
-        System.out.println("optInt2="+optInt2);
-        System.out.println("optInt1.equals(optInt2)?"+optInt1.equals(optInt2));
+        System.out.println("optInt1=" + optInt1);
+        System.out.println("optInt2=" + optInt2);
+        System.out.println("optInt1.equals(optInt2)?" + optInt1.equals(optInt2));
 
     }
 }

@@ -3,6 +3,7 @@ package thread;
 import javax.swing.JOptionPane;
 
 public class Sample08 {
+
     public static void main(String[] args) throws Exception {
         Thread1 th1 = new Thread1();
         th1.start();
@@ -15,12 +16,14 @@ public class Sample08 {
     }
 
     static class Thread1 extends Thread {
+
         public void run() {
             int i = 10;
 
             while (i != 0 && !isInterrupted()) {
                 System.out.println(i--);
-                for (long x = 0; x < 2500000000L; x++) ; // 시간 지연
+                for (long x = 0; x < 2500000000L; x++)
+                    ; // 시간 지연
             }
             System.out.println("interrupted(): " + interrupted()); // true
             System.out.println("interrupted(): " + interrupted()); // false 1번 사용 후 false로 초기화

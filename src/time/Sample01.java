@@ -32,14 +32,11 @@ public class Sample01 {
         LocalTime now = LocalTime.now();
         int minute = now.getMinute();
         System.out.println("minute = " + minute);
-        
 
-        LocalDate sunnyDate = LocalDate.of(2019, 9, 14); 
+        LocalDate sunnyDate = LocalDate.of(2019, 9, 14);
         LocalTime sunnyTime = LocalTime.of(22, 20, 24);
         System.out.println("sunnyDate = " + sunnyDate);
         System.out.println("sunnyTime = " + sunnyTime);
-
-
 
         LocalDate sunnyDate1 = LocalDate.ofYearDay(2019, 365);
         System.out.println("sunnyDate1 = " + sunnyDate1);

@@ -7,42 +7,6 @@ import java.util.Map;
 
 public class Sample05 {
 
-    static class SampleUser {
-
-        private String lastName;
-
-        private String FirstName;
-
-        public SampleUser(String lastName, String firstName) {
-            this.lastName = lastName;
-            FirstName = firstName;
-        }
-
-        public SampleUser() {
-
-        }
-
-        public SampleUser(String lastName) {
-            this.lastName = lastName;
-        }
-
-        public String getLastName() {
-            return lastName;
-        }
-
-        public void setLastName(String lastName) {
-            this.lastName = lastName;
-        }
-
-        public String getFirstName() {
-            return FirstName;
-        }
-
-        public void setFirstName(String firstName) {
-            FirstName = firstName;
-        }
-    }
-
     public static void main(String[] args) {
 
         List<SampleUser> users = new ArrayList<>();
@@ -83,6 +47,42 @@ public class Sample05 {
         // map의 모든 요소를 {k,v}의 형식으로 출력한다.
         map.forEach((k, v) -> System.out.print("{" + k + "," + v + "},"));
         System.out.println();
+    }
+
+    static class SampleUser {
+
+        private String lastName;
+
+        private String FirstName;
+
+        public SampleUser(String lastName, String firstName) {
+            this.lastName = lastName;
+            FirstName = firstName;
+        }
+
+        public SampleUser() {
+
+        }
+
+        public SampleUser(String lastName) {
+            this.lastName = lastName;
+        }
+
+        public String getLastName() {
+            return lastName;
+        }
+
+        public void setLastName(String lastName) {
+            this.lastName = lastName;
+        }
+
+        public String getFirstName() {
+            return FirstName;
+        }
+
+        public void setFirstName(String firstName) {
+            FirstName = firstName;
+        }
     }
 
 }

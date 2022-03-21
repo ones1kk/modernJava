@@ -9,6 +9,12 @@ public class Sample04 {
 
     }
 
+    static interface InterfaceWriter<W extends WorkBook, T> {
+
+        public InterfaceWriter write();
+
+    }
+
     static class Calculator {
 
         private String add;
@@ -43,13 +49,7 @@ public class Sample04 {
         }
     }
 
-    static interface InterfaceWriter<W extends WorkBook, T> {
-
-        public  InterfaceWriter write();
-
-    }
-
-    static abstract class Writer<T> implements  InterfaceWriter{
+    static abstract class Writer<T> implements InterfaceWriter {
 
         protected final WorkBook workBook;
 

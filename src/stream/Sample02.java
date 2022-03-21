@@ -59,7 +59,7 @@ class Student implements Comparable<Student> {
     public int compareTo(Student s) {
         System.out.println(s.totalScore - this.totalScore);
         System.out.println("s : " + s);
-        System.out.println("this : " +this);
+        System.out.println("this : " + this);
         return s.totalScore - this.totalScore;
     }
 }
