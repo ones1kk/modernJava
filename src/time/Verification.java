@@ -12,7 +12,10 @@ public class Verification {
 
     private final LocalDateTime createdDateTime = LocalDateTime.now();
 
-
+    public Verification(String code) {
+        this.code = code;
+        this.duration = Duration.ofMillis(1000L);
+    }
 
     public Verification(String code, Duration duration) {
         if(code.length() > 6) throw new RuntimeException();
@@ -60,7 +63,18 @@ public class Verification {
         System.out.println(verification.verify("123123"));
 
 
-        Verification exception = new Verification("", Duration.ofMillis(100));
+//        Verification exception = new Verification("", Duration.ofMillis(100));
+
+        /********************************V2********************************/
+        System.out.println();
+        String code1 = "aaaaaa";
+        Verification verification1 = new Verification(code1);
+
+        System.out.println(verification1.verify("123456"));
+        System.out.println(verification1.verify("aaaaaa"));
+
+        Thread.sleep(3000L);
+        System.out.println(verification1.verify("aaaaaa"));
 
 
     }
