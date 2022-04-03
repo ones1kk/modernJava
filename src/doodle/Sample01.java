@@ -14,7 +14,7 @@ public class Sample01 {
                 "test8")
             .collect(Collectors.toSet());
 
-        Generator<Object> aaa = Generator.builder("aaa", set).build();
+        Generator<String> aaa = Generator.builder("aaa", set).build();
         System.out.println("aaa = " + aaa);
         System.out.println(Generator.builder("aaa", set).build().name);
         System.out.println(Generator.builder("aaa", set).build().set);
@@ -35,8 +35,8 @@ public class Sample01 {
         }
 
 
-        public static <T> Builder<T> builder(String name, Set<String> set) {
-            return new Builder(name, set);
+        public static Builder<String> builder(String name, Set<String> set) {
+            return new Builder<>(name, set);
         }
 
 

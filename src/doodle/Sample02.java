@@ -28,9 +28,13 @@ public class Sample02{
     private void foreach() {
         map.forEach((k,v) -> {
             Function<Model, String> keyFunc = v[0];
+            Function<Model, String> valFunc = v[1];
 
-            List<String> lists = this.set.stream().map(Model::getName).collect(Collectors.toList());
-            this.list = lists;
+            List<String> ids = this.set.stream().map(keyFunc).sorted().collect(Collectors.toList());
+            List<String> names = this.set.stream().map(valFunc).sorted().collect(Collectors.toList());
+            System.out.println("ids = " + ids);
+            System.out.println("names = " + names);
+            this.list = ids;
         });
     }
 
