@@ -14,7 +14,8 @@ public class Sample01 {
                 "test8")
             .collect(Collectors.toSet());
 
-        Generator.builder("aaa", set).build();
+        Generator<Object> aaa = Generator.builder("aaa", set).build();
+        System.out.println("aaa = " + aaa);
         System.out.println(Generator.builder("aaa", set).build().name);
         System.out.println(Generator.builder("aaa", set).build().set);
     }
